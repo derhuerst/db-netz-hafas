@@ -1,0 +1,36 @@
+{
+	"name": "db-netz-hafas",
+	"description": "Fetch Betriebsstellen & disturbances from the DB Netz HAFAS endpoint.",
+	"version": "1.0.0",
+	"main": "index.js",
+	"files": [
+		"index.js",
+		"example.js"
+	],
+	"keywords": [
+		"public transport",
+		"railway",
+		"disturbance",
+		"disruption",
+		"construction",
+		"betriebsstelle",
+		"db netz",
+		"hafas"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/db-netz-hafas",
+	"repository": "derhuerst/db-netz-hafas",
+	"bugs": "https://github.com/derhuerst/db-netz-hafas/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=8"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+	},
+	"scripts": {
+		"test": "env NODE_ENV=dev node test.js",
+		"prepublishOnly": "npm test"
+	}
+}
