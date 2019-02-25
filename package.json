@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"files": [
 		"index.js",
+		"lib",
 		"example.js"
 	],
 	"keywords": [
@@ -26,6 +27,7 @@
 		"node": ">=8"
 	},
 	"dependencies": {
+		"hafas-client": "^4.0.2"
 	},
 	"devDependencies": {
 	},
