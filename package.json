@@ -1,7 +1,7 @@
 {
 	"name": "db-netz-hafas",
 	"description": "Fetch Betriebsstellen & disturbances from the DB Netz HAFAS endpoint.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "index.js",
 	"files": [
 		"index.js",

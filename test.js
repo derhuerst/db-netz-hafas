@@ -18,7 +18,7 @@ const checkRemark = (r) => {
 	if (r.category !== null) a.strictEqual(typeof r.category, 'number')
 	if ('validFrom' in r) a.ok(isValidISODate(r.validFrom))
 	if ('validUntil' in r) a.ok(isValidISODate(r.validUntil))
-	if ('modified' in r) in a.ok(isValidISODate(r.modified))
+	if ('modified' in r) a.ok(isValidISODate(r.modified))
 }
 
 client.remarks({
