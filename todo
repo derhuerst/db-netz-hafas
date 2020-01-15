@@ -1,0 +1,6 @@
+SPNV: 24
+SPFV: 3
+SGV: 896
+			// localPublicTransport: true,
+			// longDistancePublicTransport: true,
+			// freightTraffic: true,

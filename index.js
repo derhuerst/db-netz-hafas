@@ -54,6 +54,7 @@ const createClient = (userAgent, opt = {}) => {
 		})
 		// todo: concat with `common.hints`?
 		.then(({common}) => common.warnings)
+		// todo: `res.lastUpd` "2020-01-10, 09:48"
 	}
 
 	const remark = (id, opt = {}) => {
