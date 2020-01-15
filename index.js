@@ -6,8 +6,8 @@ const _profile = require('./lib/profile')
 
 const isNonEmptyString = str => 'string' === typeof str && str.length > 0
 
-const createClient = (userAgent) => {
-	const client = createHafasClient(_profile, userAgent)
+const createClient = (userAgent, opt = {}) => {
+	const client = createHafasClient(_profile, userAgent, opt)
 	const {profile} = client
 
 	const remarks = ({north, west, south, east}, opt) => {
@@ -35,7 +35,10 @@ const createClient = (userAgent) => {
 		if (opt.constructionWorks) himFilters.push({type: 'HIMCAT', mode: 'INC', value: '1'})
 		if (opt.closedTracks) himFilters.push({type: 'HIMCAT', mode: 'INC', value: '2'})
 
-		return request(profile, userAgent, {...opt, remarks: true}, {
+		return request({
+			profile,
+			opt: {...opt, remarks: true}
+		}, userAgent, {
 			meth: 'HimGeoPos',
 			req: {
 				rect: profile.formatRectangle(profile, north, west, south, east),
@@ -49,7 +52,8 @@ const createClient = (userAgent) => {
 				// todo: `onlyHimId`, `prio`
 			}
 		})
-		.then(d => d.warnings)
+		// todo: concat with `common.hints`?
+		.then(({common}) => common.warnings)
 	}
 
 	const remark = (id, opt = {}) => {
@@ -60,18 +64,22 @@ const createClient = (userAgent) => {
 		if (!opt.toWhen) opt.toWhen = opt.fromWhen
 		else if (Number.isNaN(+opt.toWhen)) throw new TypeError('opt.toWhen is invalid')
 
-		return request(profile, userAgent, {...opt, remarks: true}, {
+		return request({
+			profile,
+			opt: {...opt, remarks: true}
+		}, userAgent, {
 			meth: 'HimDetails',
 			req: {
 				input: id,
 				date: profile.formatDate(profile, opt.fromWhen),
 				time: profile.formatTime(profile, opt.fromWhen),
 				endDate: profile.formatDate(profile, opt.toWhen),
-				endTime: profile.formatTime(profile, opt.toWhen)
+				endTime: profile.formatTime(profile, opt.toWhen),
+				getTrains: true
 			}
 		})
-		.then((d) => {
-			const warning = d.warnings[d.msgRefL[0]]
+		.then(({common, res}) => {
+			const warning = common.warnings[res.msgRefL[0]]
 			if (!warning) throw new Error('invalid response')
 			return warning
 		})
