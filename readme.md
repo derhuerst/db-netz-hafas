@@ -1,8 +1,12 @@
-# db-netz-hafas
+# `db-netz-hafas@1`
+
+**Deprecated. Use [`db-netz-hafas@latest`](https://github.com/derhuerst/db-netz-hafas).**
+
+---
 
 **Fetch [Betriebsstellen & disturbances in the German rail network](https://strecken.info/) from the DB Netz HAFAS endpoint.**
 
-This project is actually a thin wrapper around [`hafas-client`](https://github.com/public-transport/hafas-client/tree/4#hafas-client). [Its docs](https://github.com/public-transport/hafas-client/tree/4/docs) document the API in general.
+This project is actually a thin wrapper around [`hafas-client@4`](https://github.com/public-transport/hafas-client/tree/4#hafas-client). [Its docs](https://github.com/public-transport/hafas-client/tree/4/docs) document the API in general.
 
 [![npm version](https://img.shields.io/npm/v/db-netz-hafas.svg)](https://www.npmjs.com/package/db-netz-hafas)
 [![build status](https://api.travis-ci.org/derhuerst/db-netz-hafas.svg?branch=master)](https://travis-ci.org/derhuerst/db-netz-hafas)
